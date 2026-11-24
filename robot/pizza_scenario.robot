@@ -4,6 +4,7 @@ Resource    resources/quickpizza.resource
 Test Teardown    Close Browser
 Library    DateTime
 
+
 *** Test Cases ***
 QP-01 A Custom Pizza Reaches The Admin List
     [Documentation]    A pizza request with restrictions gives a pizza that
@@ -14,3 +15,7 @@ QP-01 A Custom Pizza Reaches The Admin List
     ${name}=    Set Variable    Lab Pizza ${stamp}
     Fill In The Pizza Request    600    Knife    ${name}
     Capture Page Screenshot    qp01-step3-fields.png
+    Ask For A Pizza
+    ${tool}=    Recommendation Should Keep The Restrictions
+    ...    ${name}    Knife    600
+    Capture Element Screenshot    id:recommendations    qp01-step4-pizza.png
