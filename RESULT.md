@@ -1,25 +1,41 @@
 # UI lab results
 
-Tool parts that I chose: Selenium IDE and Cypress
+Selected tools:
+- Robot Framework
+- Cypress
 
 ## Part 0
 - Step 0.1, Chrome version: 157.0.8103.79
 - Step 0.3, ChromeDriver version: 157.0.8103.79
-- Step 0.4, locator of Pizza, Please!:
-- Step 0.4, locator of Excluded tools:
-- Step 0.4, locator of Must be vegetarian:
-- Step 0.4, locator of Custom Pizza Name:
-- Step 0.5, pizza name, tool and calories of the run by hand:
+- Step 0.4: Locators
 
-| Step | Actual result | Pass or fail |
-|------|---------------|--------------|
-| 1    |               |              |
-| 2    |               |              |
-| 3    |               |              |
-| 4    |               |              |
-| 5    |               |              |
-| 6    |               |              |
-| 7    |               |              |
+| Element | CSS Locator |
+|---|---|
+| Pizza, Please! | [name="pizza-please"] |
+| Excluded tools | select |
+| Must be vegetarian | #default-checkbox |
+| Custom Pizza Name | input#pizza-name |
+
+The ID floating_filled is not unique.
+Therefore, XPath based on the field label
+is used to locate the maximum calories input.
+- Step 0.5, pizza name, tool and calories of the run by hand:
+    - Pizza name: Lab Pizza 20261124-011121
+    - Maximum calories per slice: 600
+    - Excluded tool: Knife
+    - Vegetarian: Yes
+    - Admin username: admin
+    - Admin password: admin
+
+| Step | Action | Expected Result | Actual Result | Status |
+|---|---|---|---|---|
+| 1 | Open QuickPizza | Correct heading appears | The correct heading was displayed. | Pass |
+| 2 | Turn on Advanced | Four advanced fields appear | All four fields were displayed. | Pass |
+| 3 | Fill in the restrictions and name | Fields contain the specified values | All input values matched the test data. | Pass |
+| 4 | Click Pizza, Please! | Correct name, tool other than Knife, and calories <= 600 | The pizza name and restrictions matched the expected results. | Pass |
+| 5 | Click Love it! without logging in | Please log in first. | The login message was displayed. | Pass |
+| 6 | Open /admin and sign in | Latest pizza recommendations appears | The recommendation list was displayed. | Pass |
+| 7 | Find the pizza in the admin list | Same pizza name and tool | The pizza name and tool matched the recommendation. | Pass |
 
 ## Part 1: Selenium IDE
 - Firefox version and Node.js version:
